@@ -1,3 +1,4 @@
+package Strivers_sheet_180.pascalsTriangleI;
 import java.util.ArrayList;
 import java.util.List;
 class Solution {
