@@ -1,5 +1,4 @@
-package Strivers_sheet_180.nextPermutation;
-class Solution {
+class Solution{
     public void nextPermutation(int[] nums) {
         if (nums.length <= 1) return;
 
