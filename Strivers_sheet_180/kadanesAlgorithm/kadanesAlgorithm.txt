@@ -1,0 +1,22 @@
+Kadane's Algorithm - Maximum Subarray Sum
+
+1. Problem Definition:
+   Given an array of integers (containing both positive and negative numbers), 
+   find the contiguous subarray that has the largest possible sum.
+
+2. Core Concept:
+   Kadane's Algorithm uses dynamic programming to solve this in a single pass.
+   It maintains two variables:
+   - currentSum: The maximum subarray sum ending at the current position.
+   - maxSum: The overall maximum sum found so far.
+
+3. Logic:
+   For each element in the array:
+   - Add the element to currentSum.
+   - If currentSum > maxSum, update maxSum.
+   - If currentSum < 0, reset currentSum to 0 (because a negative sum will 
+     only decrease the potential sum of subsequent elements).
+
+4. Efficiency:
+   - Time Complexity: O(n) - Single pass through the array.
+   - Space Complexity: O(1) - Constant space required.
