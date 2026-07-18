@@ -1,0 +1,20 @@
+Explanation of Sort Colors Approaches
+
+1. First Approach (Counting Sort):
+   - Strategy: Two-pass algorithm.
+   - Pass 1: Iterate through the array to count the occurrences of 0, 1, and 2.
+   - Pass 2: Overwrite the original array with the stored counts (fill with 0s, then 1s, then 2s).
+   - Complexity: 
+     - Time: O(n) (Two passes)
+     - Space: O(1)
+
+2. Optimal Approach (Dutch National Flag Algorithm):
+   - Strategy: One-pass algorithm using three pointers (low, mid, high).
+   - Logic: 
+     - Partition the array into three segments: 0s (0 to low-1), 1s (low to mid-1), and 2s (high+1 to n-1).
+     - If nums[mid] == 0: Swap with low, increment both low and mid.
+     - If nums[mid] == 1: Increment mid.
+     - If nums[mid] == 2: Swap with high, decrement high (do not increment mid).
+   - Complexity:
+     - Time: O(n) (One pass)
+     - Space: O(1)
