@@ -1,0 +1,18 @@
+# Matrix Rotation Approaches Summary
+
+## 1. firstApproch (Brute Force / Out-of-place)
+* **Logic:** Creates a separate temporary matrix `temp` to store the rotated elements. It maps each element from the original `matrix[i][j]` to its new rotated position in `temp` using `temp[j][n-1-i] = matrix[i][j]`, then copies everything back to the original matrix.
+* **Main Point:** Simple to visualize but uses extra space.
+* **Time Complexity:** O(n²) — Iterates through the matrix to map elements and again to copy them back [cite: 1].
+* **Space Complexity:** O(n²) — Requires an auxiliary matrix of the same size as the input [cite: 1].
+
+## 2. optimalApproch (In-place)
+* **Logic:** Performs the rotation in two distinct, intuitive steps:
+    1. Transpose: Flips the matrix over its diagonal by swapping `matrix[i][j]` with `matrix[j][i]`.
+    2. Reverse: Reverses each individual row to complete the 90-degree clockwise rotation.
+* **Main Point:** Modifies the input matrix directly without needing extra space.
+* **Time Complexity:** O(n²) — Visits each element to transpose and then again to reverse rows [cite: 1].
+* **Space Complexity:** O(1) — Uses only a few variables for swapping, making it highly memory efficient [cite: 1].
+
+---
+Summary: The 'optimalApproch' is the industry standard for this problem because it achieves the same time complexity as the 'firstApproch' while reducing the space complexity from O(n²) to O(1) [cite: 1].
