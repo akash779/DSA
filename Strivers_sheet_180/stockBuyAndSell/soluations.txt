@@ -1,0 +1,16 @@
+# Stock Profit Solutions Summary
+
+## 1. firstApproch (Brute Force)
+* **Logic:** Uses nested loops to evaluate every possible buy-and-sell day combination. For each day, it considers it a potential 'buy' day and checks every subsequent day as a potential 'sell' day.
+* **Main Point:** Exhaustive search of all pairs.
+* **Time Complexity:** O(n²) — Inefficient for large datasets; will cause 'Time Limit Exceeded' on platforms like LeetCode.
+* **Space Complexity:** O(1).
+
+## 2. optimalApproch (Single Pass)
+* **Logic:** Iterates through the array exactly once. It maintains a 'minPrice' (lowest price seen so far) and updates 'maxProfit' by calculating the difference between the current price and that 'minPrice'.
+* **Main Point:** Captures the "Buy Low, Sell High" strategy in one linear scan.
+* **Time Complexity:** O(n) — Highly efficient and suitable for large arrays.
+* **Space Complexity:** O(1).
+
+---
+Summary: Always prefer the 'optimalApproch' for production code and interviews. The quadratic complexity of the 'firstApproch' is generally unacceptable for real-world or competitive pr
