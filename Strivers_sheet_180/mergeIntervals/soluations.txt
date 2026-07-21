@@ -1,0 +1,27 @@
+Merge Intervals - Approaches &amp; Key
+Differences
+
+1. First Approach (Nested Loops / Element Marking Strategy)
+• Core Logic: Uses nested loops to compare every subsequent element and marks
+absorbed/merged intervals inside the original array by setting them to [-1, -1].
+• Time Complexity: O(N^2) (due to the inner loop scanning remaining elements).
+• Space Complexity: O(N) (for storing elements in list2D).
+• Key Drawback: Highly inefficient and buggy. Mutating elements mid-loop creates bad
+states and leads to incorrect outputs on complex test cases.
+
+2. Second Approach (Single Loop with Manual Range Tracking)
+• Core Logic: Replaces the inner loop with a single pass, tracking bounds via local variables
+(starti, endi) and manually checking/overwriting the last element in the list.
+• Time Complexity: O(N log N) (dominated by sorting).
+• Space Complexity: O(N) (for list2D).
+• Key Drawback: Excessively cluttered. Uses redundant conditional checks and manual
+state-management which complicates the code and causes edge-case test failures.
+
+3. Optimal Approach (Clean Single Pass with Direct Tracking)
+• Core Logic: Sorts intervals first, pushes the first interval into a tracking list, and evaluates
+subsequent elements in a single pass by directly reading/updating the last added element&#39;s
+end time.
+• Time Complexity: O(N log N) (sorting step + linear O(N) scan).
+• Space Complexity: O(N) (for the result list).
+• Key Advantage: Clean, concise, and bug-free. Eliminates manual tracking variables and
+safely handles overlaps using Math.max.
