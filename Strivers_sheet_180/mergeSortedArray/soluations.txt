@@ -1,0 +1,32 @@
+Merge Sorted Array - Optimal In-Place
+Solution Summary
+
+1. Problem Overview
+The problem requires merging two sorted arrays (`nums1` and `nums2`) into a single sorted
+array. `nums1` has a size of `m + n`, where the first `m` elements denote the actual elements,
+and the last `n` elements are set to 0 and act as a placeholder for `nums2`.
+
+2. Why the Backward Two-Pointer Approach?
+If we merge from the front (left to right), we risk overwriting existing elements in `nums1`
+before they can be compared and shifted. By starting from the back (right to left), we utilize
+the empty space at the end of `nums1` to place the largest elements first, completely
+avoiding data overwriting and eliminating the need for extra space.
+
+3. Key Pointers Used
+• a1 = m - 1: Points to the last valid element in `nums1`.
+• a2 = n - 1: Points to the last element in `nums2`.
+• p1 = m + n - 1: Points to the very end of `nums1` where the merging placement begins.
+
+4. Core Algorithm Logic
+1. Run a loop while `a2 &gt;= 0` (meaning there are still elements left in `nums2` to merge).
+2. Compare `nums1[a1]` and `nums2[a2]`. Place the larger element at `nums1[p1]` and
+decrement the corresponding pointers.
+3. Edge Case Handling: If `a1 &lt; 0` (i.e., all elements of `nums1` are exhausted), the `if (a1 &gt;= 0
+&amp;&amp; ...)` condition safely prevents out-of-bounds errors, routing execution to the `else` block
+to copy remaining `nums2` elements.
+4. Early Termination: If `nums2` runs out first (`a2 &lt; 0`), the loop terminates automatically,
+leaving the remaining elements of `nums1` untouched in their correct sorted positions.
+
+5. Complexities
+• Time Complexity: O(m + n) — Every element from both arrays is visited at most once.
+• Space Complexity: O(1) — Constant space,
